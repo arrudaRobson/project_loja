@@ -1,6 +1,5 @@
 <?php
 include ('config.php');
-include ('config2.php');
 include ('DAO/UserDAO.php');
 include ('helpers.php');
 ?>
@@ -129,7 +128,9 @@ include ('helpers.php');
 
 											
 											<? 
-												$query = mysql_query("SELECT * FROM tipo");
+
+											
+    $query = mysql_query("SELECT * FROM tipo");
 while ($row = mysql_fetch_array($query)) {
 $id = $row['0'];
 $tipo = $row['1'];
@@ -188,7 +189,7 @@ echo "<form method='POST' class='' action='loja-f.php'>
 											</header>
 
 <? 
-$query = mysql_query("SELECT * FROM `produto");
+$query = mysql_query("SELECT * FROM produto");
 while ($row = mysql_fetch_array($query)) {
 $id = $row['0'];
 $nome = $row['1'];

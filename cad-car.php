@@ -1,7 +1,6 @@
                             <?php
 
 include ('config.php');
-include ('config2.php');
 include ('DAO/UserDAO.php');
 include ('helpers.php');
 

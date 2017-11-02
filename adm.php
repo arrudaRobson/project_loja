@@ -1,8 +1,7 @@
-<?php
+  <?php
 include ('config.php');
 include ('DAO/AdmDAO.php');
 include ('helpers.php');
-include('config2.php');
 ?>
 
 <!DOCTYPE html>
@@ -87,7 +86,7 @@ if ($status==1) {
                                 <div class="panel-body">
                                     <hr class="hr-dark" />
 
-<form method="POST" class="form-cad-prod" action="cadastro-produto.php">
+<form method="POST" class="form-cad-prod" action="cadastro-itens.php">
 <input type="text" placeholder="nome" name="nome"><br>
 <input type="text" placeholder="descrição" name="desc"><br>
 <input type="text" placeholder="tamanho" name="tam"><br>
@@ -119,7 +118,7 @@ echo "<option value='".$id."'>".$titulo."<option>";}
 
                                 </div>
                                 <div class="panel-footer text-left">
-                                <input type="submit" value="Cadastrar"></form>
+                                <input type="submit" value="Cadastrar" name="Cadastrar-produto"></form>
                                 </div>
                             </div>
                         </div>
@@ -190,10 +189,24 @@ echo "<div class='produto'>
                         <div class="panel-body">
                             <hr class="hr-dark" />
                               
-                            <form method="POST" class="form-update" action="cad-tipo.php" id="form-update">
+                            <form method="POST" class="form-update" action="cad-itens.php" id="form-update">
                                 <input type="text" name="tipo" placeholder="Digite o nome do tipo">
-                                <input type="submit" value="Cadstrar">
+                                <input type="submit" value="Cadastrar tipo" name="Cadastrar-tipo">
+                            </form><br><br>
+
+                            <?
+                              $cmd=mysql_query("select*from tipo");
+                              while ($row=mysql_fetch_array($cmd)) {
+                                $idtipo=$row[0];
+                                $tipo=$row[1];
+                                echo $tipo."
+                                <form method='POST' class='form-update' action='cad-itens.php' id='form-update'>
+                                 <input type='text' style='display:none;' name='idtipo' value='".$idtipo."'>
+                                <input type='submit' value='Excluir' name='excluir-tipo'>
                             </form>
+                                <br>";
+                              }
+                            ?>
 
 
                             </div>
@@ -351,7 +364,7 @@ echo "<div style='background:; width:350px;float:left'><hr size='200px' width='1
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div></form>
 
-      </div>     
+       </div>     
 
                 </div>
               </div>
@@ -360,7 +373,7 @@ echo "<div style='background:; width:350px;float:left'><hr size='200px' width='1
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   jQuery(document).ready(function(){
     jQuery('#form-update').submit(function(){
       var dados = jQuery( this ).serialize();
@@ -379,7 +392,7 @@ echo "<div style='background:; width:350px;float:left'><hr size='200px' width='1
       return false;
     });
   });
-  </script>
+  </script>-->
 
 
  </div>

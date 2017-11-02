@@ -26,6 +26,16 @@ function cadTipo($conexao, $tipo) {
     return mysqli_query($conexao, $cmdsql);
 }
 
+function exTipo($conexao, $idtipo) {
+
+    //Criar comando SQL que cadastra
+    $cmdsql = "DELETE FROM tipo WHERE idtipo = '{$idtipo}'";
+
+//Executa o comando sql
+
+    return mysqli_query($conexao, $cmdsql);
+}
+
 
 
 

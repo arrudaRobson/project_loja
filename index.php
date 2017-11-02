@@ -88,7 +88,7 @@ include ('helpers.php');
           if (usuarioQueEstaLogado()) {
               $email = usuarioLogado();
     $cmdsql = "select * from usuario where email='{$email}'";
-    $resultado = mysqli_query($conexao, $cmdsql);
+    $resultado = mysqli_query($conexao,$cmdsql);
     $pesquisa = mysqli_fetch_assoc($resultado);
     $usuario = $pesquisa["email"];
     $nome = $pesquisa["nome"];
