@@ -27,7 +27,7 @@ $data['nCdEmpresa'] = '';
 
  $curl = curl_init($url . '?' . $data);
  curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
+     //só comentei
  $result = curl_exec($curl);
  $result = simplexml_load_string($result);
  foreach($result -> cServico as $row) {
